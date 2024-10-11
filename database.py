@@ -31,3 +31,20 @@ def add_product(conn, name, description, price):
     )
     conn.commit()
     cur.close()
+
+# Hàm cập nhật sản phẩm
+def update_product(conn, product_id, name, description, price):
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE product SET name = %s, description = %s, price = %s WHERE id = %s",
+        (name, description, price, product_id)
+    )
+    conn.commit()
+    cur.close()
+    
+# Hàm xóa sản phẩm
+def delete_product(conn, product_id):
+    cur = conn.cursor()
+    cur.execute("DELETE FROM product WHERE id = %s", (product_id,))
+    conn.commit()
+    cur.close()
