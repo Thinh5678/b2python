@@ -97,7 +97,7 @@ def add_product():
 def view_products():
     products = database.get_all_products(conn)
     
-    result_text.delete(1.0, tk.END)  # Xóa nội dung trước
+    result_text.delete(1.0, tk.END)
     for product in products:
         result_text.insert(tk.END, f"ID: {product[0]}, Tên: {product[1]}, Mô tả: {product[2]}, Giá: {product[3]}\n")
 
